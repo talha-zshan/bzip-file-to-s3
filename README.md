@@ -13,5 +13,9 @@ KEY POINTS:
   https://github.com/gkrizek/bash-lambda-layer
   
   Check Out the following links if you want to learn how to use awscli on lambda with python:
+  
+  "How to use AWS CLI within a Lambda function (By Ilya Bezdelev)" 
   https://bezdelev.com/hacking/aws-cli-inside-lambda-layer-aws-s3-sync/
+  
+  "Running aws-cli Commands Inside An AWS Lambda Function (By Eric Hammond)"
   https://alestic.com/2016/11/aws-lambda-awscli/
