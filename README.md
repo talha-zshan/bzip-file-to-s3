@@ -1,7 +1,9 @@
 # bzip-file-to-s3
 
 Bash Script that uses awscli to download, bzip and reupload files in a folder on s3 bucket using aws lambda environment.
-Lambda is triggered on a S3 PUT event notification.
+Lambda Function is triggered on a S3 PUT event notification.
+
+- Select runtime as "custom runtime" to run bash scripts in lambda function
 
 KEY POINTS:
 1) The bzip file is uploaded to the same path of the PUT event notification. 
