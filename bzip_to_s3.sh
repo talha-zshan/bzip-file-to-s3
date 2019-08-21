@@ -50,22 +50,19 @@ function handler () {
         exit 0;
     fi
     
-    # Download folder to tmp directory using aws command    
-    #aws s3 cp $UPLOAD_PATH /tmp/$SUB_RECIPE_FOLDER_NAME/$VERSION_FOLDER --recursive --exclude "*." --include "*bsc.docx" --include "*metu.pdf"
+    # Download folder to tmp directory using aws command (filter files to download only those required)    
     aws s3 cp $UPLOAD_PATH /tmp/$SUB_RECIPE_FOLDER_NAME/$VERSION_FOLDER --recursive --exclude "*" --include "*.json" --include "*tft.png" --include "*tft-thumbnail.png"
     
     #change into temp dir for tar process
     cd /tmp/
     
-    #Zip folder
-    #zip -r $ZIP_FILE $SUB_RECIPE_FOLDER_NAME
+    #bzip folder
     tar cjvf $ZIP_FILE $SUB_RECIPE_FOLDER_NAME
     
     #Upload to S3
-    #aws s3 cp $ZIP_FILE "s3://wildrydes-talha-zeeshan/"
     aws s3 cp $ZIP_FILE $UPLOAD_PATH
     
-    # Clean up
+    # Clean up tmp directory
     rm $ZIP_FILE
     rm -r $SUB_RECIPE_FOLDER_NAME
     
