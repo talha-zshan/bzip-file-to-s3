@@ -7,14 +7,16 @@ Lambda Function is triggered on a S3 PUT event notification.
 
 KEY POINTS:
 1) The bzip file is uploaded to the same path of the PUT event notification. 
-2) The folder of the PUT event is the folder that is bzipped and uploaded.
-3) The script first checks if specified upload path already contains a bzip file to avoid infinite trigger loop 
+2) This code looks for events in an s3 bucket with THREE sub_folders, however it will work for any number of folders provided
+   the relevant folder variables are added/removed from this script.
+3) The folder of the PUT event is the folder that is bzipped and uploaded.
+4) The script first checks if specified upload path already contains a bzip file to avoid infinite trigger loop 
   (NOT RECOMMENDED => I only did this according to instructions provided to me)
 
   AWSCLI Layer used in this task provided by:
   https://github.com/gkrizek/bash-lambda-layer
   
-  Check Out the following links to learn how to use awscli on lambda with python:
+  Links to learn how to use awscli on lambda with python:
   
   - "How to use AWS CLI within a Lambda function (By Ilya Bezdelev)" 
      https://bezdelev.com/hacking/aws-cli-inside-lambda-layer-aws-s3-sync/
